@@ -22,11 +22,11 @@ struct SS0( S0 );
 
 #[derive( Reflection )]
 struct S1<'a> {
-    bool_:bool, i8_:i8, u8_:u8, i16_:i16, u16_:u16, i32_:i32, u32_:u32, i64_:i64, u64_:u64, f32_:f32, f64_:f64, str_:&'a str, string:String
+    bool_:bool, i8_:i8, u8_:u8, i16_:i16, u16_:u16, i32_:i32, u32_:u32, i64_:i64, u64_:u64, isize_:isize, usize_:usize, f32_:f32, f64_:f64, str_:&'a str, string:String
 }
 
 #[derive( Reflection )]
-struct St1<'a> ( bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, &'a str, String );
+struct St1<'a> ( bool, i8, u8, i16, u16, i32, u32, i64, u64, isize, usize, f32, f64, &'a str, String );
 
 #[derive( Reflection )]
 struct SS1<'a>( S1<'a> );
@@ -103,8 +103,8 @@ enum TrippleU32s {
 fn misc() {
     assert_eq!(              S0::schemata().to_string(), "_:S0" );
     assert_eq!(             SS0::schemata().to_string(), "_:SS0( 0:S0 )" );
-    assert_eq!(              S1::schemata().to_string(), "_:S1( bool_:bool i8_:i8 u8_:u8 i16_:i16 u16_:u16 i32_:i32 u32_:u32 i64_:i64 u64_:u64 f32_:f32 f64_:f64 str_:&str string:String )" );
-    assert_eq!(             St1::schemata().to_string(), "_:St1( 0:bool 1:i8 2:u8 3:i16 4:u16 5:i32 6:u32 7:i64 8:u64 9:f32 10:f64 11:&str 12:String )" );
+    assert_eq!(              S1::schemata().to_string(), "_:S1( bool_:bool i8_:i8 u8_:u8 i16_:i16 u16_:u16 i32_:i32 u32_:u32 i64_:i64 u64_:u64 isize_:isize usize_:usize f32_:f32 f64_:f64 str_:&str string:String )" );
+    assert_eq!(             St1::schemata().to_string(), "_:St1( 0:bool 1:i8 2:u8 3:i16 4:u16 5:i32 6:u32 7:i64 8:u64 9:isize 10:usize 11:f32 12:f64 13:&str 14:String )" );
     assert_eq!(         SString::schemata().to_string(), "_:SString( 0:String )" );
     assert_eq!(             EEE::schemata().to_string(), "_:EEE( UUU|( 0:(((),),)( 0:((),)( 0:() ) ) ) )" );
     assert_eq!(           Color::schemata().to_string(), "_:Color( 0:u32 1:u32 2:u32 )" );
